@@ -29,7 +29,6 @@
       "last 1 safari version"
     ]
   },
-<<<<<<< HEAD
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "repository": {
@@ -42,9 +41,7 @@
     "url": "https://github.com/marinatuji/desafio-gupy/issues"
   },
   "homepage": "https://github.com/marinatuji/desafio-gupy#readme"
-=======
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0"
   }
->>>>>>> f63d44885e723e9e292981adb3ef674058a23152
 }
