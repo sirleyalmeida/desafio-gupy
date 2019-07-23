@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"> </link>
+
 function App() {
   return (
     <div className="App">
