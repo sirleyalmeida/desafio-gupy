@@ -98,6 +98,7 @@ function EnhancedTableHead(props) {
             align={row.numeric ? "right" : "left"}
             padding={row.disablePadding ? "none" : "default"}
             sortDirection={orderBy === row.id ? order : false}
+            style={{ border: "1px solid     rgba(224, 224, 224, 1)" }}
           >
             <TableSortLabel
               active={orderBy === row.id}
@@ -270,13 +271,44 @@ export default function EnhancedTable() {
                         id={labelId}
                         scope="row"
                         padding="none"
+                        style={{
+                          border: "1px solid     rgba(224, 224, 224, 1)"
+                        }}
                       >
                         {row.name}
                       </TableCell>
-                      <TableCell align="right">{row.calories}</TableCell>
-                      <TableCell align="right">{row.fat}</TableCell>
-                      <TableCell align="right">{row.carbs}</TableCell>
-                      <TableCell align="right">{row.protein}</TableCell>
+                      <TableCell
+                        style={{
+                          border: "1px solid     rgba(224, 224, 224, 1)"
+                        }}
+                        align="right"
+                      >
+                        {row.calories}
+                      </TableCell>
+                      <TableCell
+                        style={{
+                          border: "1px solid     rgba(224, 224, 224, 1)"
+                        }}
+                        align="right"
+                      >
+                        {row.fat}
+                      </TableCell>
+                      <TableCell
+                        style={{
+                          border: "1px solid     rgba(224, 224, 224, 1)"
+                        }}
+                        align="right"
+                      >
+                        {row.carbs}
+                      </TableCell>
+                      <TableCell
+                        style={{
+                          border: "1px solid     rgba(224, 224, 224, 1)"
+                        }}
+                        align="right"
+                      >
+                        {row.protein}
+                      </TableCell>
                     </TableRow>
                   );
                 })}
