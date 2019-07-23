@@ -2,6 +2,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+// import Data from 'api.js';
 import SimpleAppBar from './components/navbar.js';
 
 
