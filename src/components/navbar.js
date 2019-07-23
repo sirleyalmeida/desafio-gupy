@@ -7,11 +7,9 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import logo from './assets/logo-gupy.png';
 
-
-
 const useStyles = makeStyles({
   root: {
-   flexGrow: 1,
+    flexGrow: 1,
   },
   navTitle: {
     fontSize: 20,
@@ -31,23 +29,23 @@ export default function SimpleAppBar() {
 
   return (
     <div className={classes.root}>
-       
-        <AppBar position="static" color="default">
-            <Toolbar>
-                <img
-                    src={logo}
-                    alt="logo gupy"
-                    className={classes.imgLogo}
-                />
-                <Divider className={classes.divider} />
-                <Typography variant="h6" color="inherit" className={classes.navTitle}>
-                    Casting for Game of Thrones                   
+
+      <AppBar position="static" color="default">
+        <Toolbar>
+          <img
+            src={logo}
+            alt="logo gupy"
+            className={classes.imgLogo}
+          />
+          <Divider className={classes.divider} />
+          <Typography variant="h6" color="inherit" className={classes.navTitle}>
+            Casting for Game of Thrones
                 </Typography>
-            </Toolbar>
-        </AppBar>
-       
+        </Toolbar>
+      </AppBar>
+
     </div>
-    
+
   );
 }
 
