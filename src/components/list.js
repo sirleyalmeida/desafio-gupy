@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { Grid } from "@material-ui/core";
 
+import Candidate from './candidate';
 
 
 const useStyles = makeStyles(theme => ({
@@ -20,13 +21,8 @@ export default function PaperSheet() {
     <>
       <Grid xs={12}>
         <Paper className={classes.root}>
-          <Typography variant="h5" component="h3">
-            This is a sheet of paper.
-          </Typography>
-          <Typography component="p">
-            Paper can be used to build surface or other elements for your
-            application.
-          </Typography>
+        <Candidate>
+            </Candidate> 
         </Paper>
       </Grid>
     </>

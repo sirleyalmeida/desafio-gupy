@@ -1,20 +1,31 @@
 
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-// import Data from 'api.js';
+import Api from './components/Api';
 import SimpleAppBar from './components/navbar.js';
-
+import SearchAppBar from './components/searchNavbar.js';
+import EnhancedTableHead from './components/candidate'
 
 function App() {
+
   return (
     <div className="App">
 
-      
-      <section>
-        <PaperSheet />
-      </section>
+      <header className="App-header">
 
+        <Api />
+
+        <SimpleAppBar />
+        <SearchAppBar />
+
+      </header>
+
+
+      <section>
+        <EnhancedTableHead >
+       
+        </EnhancedTableHead>
+      </section>
     </div>
   );
 }

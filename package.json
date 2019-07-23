@@ -30,7 +30,7 @@
     ]
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
+  "main": "api.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marinatuji/desafio-gupy.git"
