@@ -19,6 +19,13 @@ function App() {
         <SearchAppBar />
 
       </header>
+
+
+      <section>
+        <EnhancedTableHead >
+       
+        </EnhancedTableHead>
+      </section>
     </div>
   );
 }
