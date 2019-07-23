@@ -1,1 +1,0 @@
-const endpoint = "http://www.mocky.io/v2/5d34c0b62e0000953fa6b7f1";
