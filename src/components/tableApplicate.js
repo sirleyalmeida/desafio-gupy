@@ -48,8 +48,10 @@ class TableApplicate extends React.Component {
                   align="center"
                   justifyContent="space-around">
                   {element.name}
-                  <div className="Border-circle">   {element.picture} </div>>
-              </TableCell>
+                  <div>
+                    <img className="Border-circle-pic" src={element.picture} />
+                  </div>
+                </TableCell>
                 <TableCell key={index}
                   style={{ border: "1px solid rgba(224, 224, 224, 1)" }}
                   align="center"
