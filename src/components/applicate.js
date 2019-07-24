@@ -189,10 +189,7 @@ const useStyles = makeStyles(theme => ({
   tableWrapper: {
     overflowX: "auto"
   },
-  chip: {
-    backgroundColor: "#00C6C1",
-    color: "white"
-  }
+
 }));
 
 export default function EnhancedTable() {
@@ -264,19 +261,11 @@ export default function EnhancedTable() {
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
-                    <TableRow
-                      hover
-                      onClick={event => handleClick(event, row.name)}
-                      role="checkbox"
-                      aria-checked={isItemSelected}
-                      tabIndex={-1}
-                      key={row.name}
-                      selected={isItemSelected}
-                    >
+                  
                     
-<TableApplicate/>
+<TableApplicate rowName={row.name} isItemSelected={isItemSelected} onClick={event => handleClick(event, row.name)} />
 
-                    </TableRow>
+                 
                   );
                 })}
               {emptyRows > 0 && (

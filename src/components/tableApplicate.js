@@ -1,5 +1,16 @@
 import React from "react";
 import TableCell from "@material-ui/core/TableCell";
+import Chip from "@material-ui/core/Chip";
+import Icon from "@material-ui/core/Icon";
+import { lighten, makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+
+import TableRow from "@material-ui/core/TableRow";
+
+
+
+ 
+
 
 class TableApplicate extends React.Component {
   constructor(props) {
@@ -27,11 +38,21 @@ class TableApplicate extends React.Component {
   }
 
   render() {
+ 
     return (
       <div>
         {this.state.database.map(element => {
           return (
             <>
+              <TableRow
+                      hover
+                      onClick={this.onClick}
+                      role="checkbox"
+                  
+                      tabIndex={-1}
+                      key={this.props.rowName}
+                      selected={this.props.isItemSelected}
+                    >
               <TableCell
                 style={{
                   border: "1px solid rgba(224, 224, 224, 1)"
@@ -66,6 +87,22 @@ class TableApplicate extends React.Component {
                 <i class="material-icons"> place </i>
               </TableCell>
 
+
+              <TableCell
+                style={{ 
+                  border: "1px solid rgba(224, 224, 224, 1)"
+                }}
+                align="left"
+              
+              >
+               {element.tags.map(item => {
+                 return (
+                  <Chip  className="Tag" label={item}></Chip>
+                 )
+               })}
+                 
+              </TableCell>
+              </TableRow>
             </>
           );
         })}
