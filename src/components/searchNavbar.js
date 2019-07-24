@@ -12,6 +12,7 @@ import { positions } from '@material-ui/system';
 const useStyles = makeStyles({
   root: {
    flexGrow: 30,
+   padding: 25 
   },
 
 });
@@ -22,16 +23,17 @@ export default function SearchAppBar() {
   return (
     <div className={classes.root}>
        
-        <AppBar position="static" color="default">
-            <Toolbar>
-                <Typography variant="h6" color="inherit">
-                       Buscar Candidato                   
-                </Typography>
-               <CustomizedInputBase/>
-               <ContainedButtons/>
-               
-            </Toolbar>
-        </AppBar>
+       <AppBar position="static" color="default">
+           <Toolbar>
+               <Typography variant="h6" color="inherit">
+                 <div className="navsearch-text">
+                   Buscar Candidato    -
+                 </div>
+               </Typography>
+              <CustomizedInputBase/>
+              <ContainedButtons/>
+           </Toolbar>
+       </AppBar>
        
     </div>
     

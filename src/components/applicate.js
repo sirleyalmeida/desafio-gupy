@@ -20,11 +20,16 @@ import Chip from "@material-ui/core/Chip";
 import Icon from "@material-ui/core/Icon";
 import TableApplicate from "./tableApplicate"
 
-function createData(affinities, applicant, contact, registered, tags) {
-  return { affinities, applicant, contact, registered, tags };
+ 
+function createData(Afinidade, Candidato, Contato, Inscrito , Observações) {
+  return { Afinidade, Candidato, Contato, Inscrito , Observações };
 }
 
-const rows = [];
+const rows = [
+  createData( "Afinidade", "Candidato", "Contato", " Inscrito em" , "Observações")
+   
+];
+ 
 
 function desc(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -54,36 +59,17 @@ function getSorting(order, orderBy) {
 
 const headRows = [
   {
-    id: "affinities",
-    numeric: false,
-    disablePadding: false,
-    label: "Afinidades"
-  },
-
-  {
-    id: "applicant",
+ 
+    id: "Afinidade",
     numeric: false,
     disablePadding: true,
-    label: "Candidato"
+    label: "Afinidade"
   },
-  {
-    id: "contact",
-    numeric: true,
-    disablePadding: false,
-    label: "Contato"
-  },
-  {
-    id: "registered",
-    numeric: true,
-    disablePadding: false,
-    label: "Inscrito em"
-  },
-  {
-    id: "tags",
-    numeric: true,
-    disablePadding: false,
-    label: "Observações"
-  }
+  { id: "Candidato", numeric: true, disablePadding: false, label: "Candidato" },
+  { id: "Contato", numeric: true, disablePadding: false, label: "Contatos" },
+  { id: "Inscrito ", numeric: true, disablePadding: false, label: "Inscrito em" },
+  { id: "Observações", numeric: true, disablePadding: false, label: "Observações" }
+ 
 ];
 
 function EnhancedTableHead(props) {
@@ -195,10 +181,7 @@ const useStyles = makeStyles(theme => ({
   tableWrapper: {
     overflowX: "auto"
   },
-  chip: {
-    backgroundColor: "#00C6C1",
-    color: "white"
-  }
+
 }));
 
 export default function EnhancedTable() {
@@ -269,15 +252,12 @@ export default function EnhancedTable() {
                   const isItemSelected = isSelected(row.name);
                   const labelId = `enhanced-table-checkbox-${index}`;
                   return (
-                    <TableRow
-                      hover
-                      onClick={event => handleClick(event, row.name)}
-                      role="checkbox"
-                      aria-checked={isItemSelected}
-                      tabIndex={-1}
-                      key={row.name}
-                      selected={isItemSelected}>
-                    </TableRow>
+ 
+                  
+                    
+<TableApplicate rowName={row.name} isItemSelected={isItemSelected} onClick={event => handleClick(event, row.name)} />
+
+ 
                   );
                 })}
               {emptyRows > 0 && (
