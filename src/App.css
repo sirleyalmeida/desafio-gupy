@@ -7,6 +7,16 @@
     padding: 20px;
     font-family: 'Lato', sans-serif;
 }
+
+.Border-circle-pic {
+    color: #e0dfe0;
+    width: 100px;
+    height: 100px;
+    border: 3px solid;
+    border-radius: 50%;
+    font-family: 'Lato', sans-serif;
+}
+
 .text-name {
     font-family: 'Lato', sans-serif;
 }

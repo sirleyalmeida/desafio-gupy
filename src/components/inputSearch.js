@@ -5,6 +5,7 @@ import InputBase from '@material-ui/core/InputBase';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import searchIcon from './assets/searchIcon.png';
+import TableApplicate from './tableApplicate';
 
 const useStyles = makeStyles({
   root: {
@@ -27,6 +28,23 @@ const useStyles = makeStyles({
   },
 });
 
+// const filterName = document.querySelector("className={classes.iconButton}");
+// filterName.addEventListener("click", (event) => {
+//   event.preventDefault();
+//   let newArray = [];
+//   if (newArray.length === 0) {
+//     alert("Campo vazio");
+//   }
+//   let filteredNames = document.querySelector("className={classes.input}");
+
+//   return (
+//     <TableApplicate>
+
+//     </TableApplicate>
+//   )
+
+// })
+
 export default function CustomizedInputBase() {
   const classes = useStyles();
 
@@ -44,11 +62,11 @@ export default function CustomizedInputBase() {
       <Divider className={classes.divider} />
       <IconButton color="primary" className={classes.iconButton} aria-label="Directions">
         <img
-            src={searchIcon}
-            alt="search icon"
-            width={30}
-            className={classes.imgLogo}
-        />  
+          src={searchIcon}
+          alt="search icon"
+          width={30}
+          className={classes.imgLogo}
+        />
       </IconButton>
     </Paper>
   );

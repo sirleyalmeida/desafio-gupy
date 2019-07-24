@@ -34,7 +34,7 @@ class TableApplicate extends React.Component {
 
   render() {
     return (
-       <>
+      <>
         {this.state.database.map(element => {
           return (
             <TableRow
@@ -57,22 +57,19 @@ class TableApplicate extends React.Component {
                 </Typography>
               </TableCell>
 
-              <TableCell
-                style={{
-                  border: "1px solid rgba(224, 224, 224, 1)"
-                }}
-                align="center"
-                justifyContent="space-around"
-              >
-                <div className="Border-circle"> {element.score} </div>
+              <TableCell>
 
                 <Typography variant="p" component="h2">
-                     {element.name}
-                    </Typography>
-
-                    <Typography variant="p" component="h2">
-                    {element.birthDate}
+                  {element.name}
                 </Typography>
+
+                <Typography variant="p" component="h2">
+                  {element.birthDate}
+                </Typography>
+                <div>
+                  <img className="Border-circle-pic" src={element.picture}></img>
+
+                </div>
               </TableCell>
               <TableCell
                 style={{
@@ -109,7 +106,7 @@ class TableApplicate extends React.Component {
           );
         })}
       </>
- 
+
     );
   }
 }
