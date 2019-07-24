@@ -7,11 +7,6 @@ import Typography from "@material-ui/core/Typography";
 
 import TableRow from "@material-ui/core/TableRow";
 
-
-
- 
-
-
 class TableApplicate extends React.Component {
   constructor(props) {
     super(props);
@@ -38,21 +33,18 @@ class TableApplicate extends React.Component {
   }
 
   render() {
- 
     return (
-      <div>
+      <>
         {this.state.database.map(element => {
           return (
-            <>
-              <TableRow
-                      hover
-                      onClick={this.onClick}
-                      role="checkbox"
-                  
-                      tabIndex={-1}
-                      key={this.props.rowName}
-                      selected={this.props.isItemSelected}
-                    >
+            <TableRow
+              hover
+              onClick={this.onClick}
+              role="checkbox"
+              tabIndex={-1}
+              key={this.props.rowName}
+              selected={this.props.isItemSelected}
+            >
               <TableCell
                 style={{
                   border: "1px solid rgba(224, 224, 224, 1)"
@@ -60,8 +52,9 @@ class TableApplicate extends React.Component {
                 align="center"
                 justifyContent="space-around"
               >
-               
-                <div className="Border-circle" > {element.score} </div>
+                <Typography variant="p" component="h2">
+                  <div className="Border-circle"> {element.score} </div>
+                </Typography>
               </TableCell>
 
               <TableCell
@@ -71,10 +64,16 @@ class TableApplicate extends React.Component {
                 align="center"
                 justifyContent="space-around"
               >
-               {element.name}
-                <div className="Border-circle">   {element.picture} </div>> 
-              </TableCell>
+                <div className="Border-circle"> {element.score} </div>
 
+                <Typography variant="p" component="h2">
+                     {element.name}
+                    </Typography>
+
+                    <Typography variant="p" component="h2">
+                    {element.birthDate}
+                </Typography>
+              </TableCell>
               <TableCell
                 style={{
                   border: "1px solid rgba(224, 224, 224, 1)"
@@ -86,27 +85,30 @@ class TableApplicate extends React.Component {
                 <i class="material-icons"> phone </i>
                 <i class="material-icons"> place </i>
               </TableCell>
-
+              <TableCell
+                style={{
+                  border: "1px solid rgba(224, 224, 224, 1)"
+                }}
+                align="center"
+                justifyContent="space-around"
+              >
+                {element.createdAt}
+              </TableCell>
 
               <TableCell
-                style={{ 
+                style={{
                   border: "1px solid rgba(224, 224, 224, 1)"
                 }}
                 align="left"
-              
               >
-               {element.tags.map(item => {
-                 return (
-                  <Chip  className="Tag" label={item}></Chip>
-                 )
-               })}
-                 
+                {element.tags.map(item => {
+                  return <Chip className="Tag" label={item} />;
+                })}
               </TableCell>
-              </TableRow>
-            </>
+            </TableRow>
           );
         })}
-      </div>
+      </>
     );
   }
 }
