@@ -16,6 +16,9 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Tooltip from "@material-ui/core/Tooltip";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
+import Chip from "@material-ui/core/Chip";
+import Icon from "@material-ui/core/Icon";
+import Api from "./Api"
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -185,6 +188,10 @@ const useStyles = makeStyles(theme => ({
   },
   tableWrapper: {
     overflowX: "auto"
+  },
+  chip: {
+    backgroundColor: "#00C6C1",
+    color: "white"
   }
 }));
 
@@ -266,49 +273,9 @@ export default function EnhancedTable() {
                       key={row.name}
                       selected={isItemSelected}
                     >
-                      <TableCell
-                        component="th"
-                        id={labelId}
-                        scope="row"
-                        padding="none"
-                        style={{
-                          border: "1px solid     rgba(224, 224, 224, 1)"
-                        }}
-                      >
-                        {row.name}
-                      </TableCell>
-                      <TableCell
-                        style={{
-                          border: "1px solid     rgba(224, 224, 224, 1)"
-                        }}
-                        align="right"
-                      >
-                        {row.calories}
-                      </TableCell>
-                      <TableCell
-                        style={{
-                          border: "1px solid     rgba(224, 224, 224, 1)"
-                        }}
-                        align="right"
-                      >
-                        {row.fat}
-                      </TableCell>
-                      <TableCell
-                        style={{
-                          border: "1px solid     rgba(224, 224, 224, 1)"
-                        }}
-                        align="right"
-                      >
-                        {row.carbs}
-                      </TableCell>
-                      <TableCell
-                        style={{
-                          border: "1px solid     rgba(224, 224, 224, 1)"
-                        }}
-                        align="right"
-                      >
-                        {row.protein}
-                      </TableCell>
+                    
+<Api/>
+
                     </TableRow>
                   );
                 })}

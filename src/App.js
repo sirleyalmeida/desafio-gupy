@@ -13,7 +13,7 @@ function App() {
 
       <header className="App-header">
 
-        <Api />
+       
 
         <SimpleAppBar />
         <SearchAppBar />
