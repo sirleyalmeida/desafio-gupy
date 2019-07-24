@@ -29,37 +29,39 @@ class TableApplicate extends React.Component {
   render() {
     return (
       <div>
-        {this.state.database.map(element => {
-          return (
-            <>
-              <TableCell
-                style={{
-                  border: "1px solid rgba(224, 224, 224, 1)"
-                }}
-                align="center"
-                justifyContent="space-around">
-                <div className="Border-circle" > {element.score} </div>
+        {
+          this.state.database.map((element, index) => {
+            return (
+              <>
+                <TableCell key={index}
+                  style={{
+                    border: "1px solid rgba(224, 224, 224, 1)"
+                  }}
+                  align="center"
+                  justifyContent="space-around">
+                  <div className="Border-circle" > {element.score} </div>
+                </TableCell>
+                <TableCell key={index}
+                  style={{
+                    border: "1px solid rgba(224, 224, 224, 1)"
+                  }}
+                  align="center"
+                  justifyContent="space-around">
+                  {element.name}
+                  <div className="Border-circle">   {element.picture} </div>>
               </TableCell>
-              <TableCell
-                style={{
-                  border: "1px solid rgba(224, 224, 224, 1)"
-                }}
-                align="center"
-                justifyContent="space-around">
-                {element.name}
-                <div className="Border-circle">   {element.picture} </div>>
-              </TableCell>
-              <TableCell
-                style={{ border: "1px solid rgba(224, 224, 224, 1)" }}
-                align="center"
-                justifyContent="space-around">
-                <i class="material-icons">email</i>
-                <i class="material-icons">phone</i>
-                <i class="material-icons">place</i>
-              </TableCell>
-            </>
-          );
-        })}
+                <TableCell key={index}
+                  style={{ border: "1px solid rgba(224, 224, 224, 1)" }}
+                  align="center"
+                  justifyContent="space-around">
+                  <i class="material-icons">email</i>
+                  <i class="material-icons">phone</i>
+                  <i class="material-icons">place</i>
+                </TableCell>
+              </>
+            );
+          })
+        }
       </div>
     );
   }

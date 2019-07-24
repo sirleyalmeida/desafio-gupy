@@ -20,8 +20,8 @@ import Chip from "@material-ui/core/Chip";
 import Icon from "@material-ui/core/Icon";
 import TableApplicate from "./tableApplicate"
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(affinities, applicant, contact, registered, tags) {
+  return { affinities, applicant, contact, registered, tags };
 }
 
 const rows = [];
@@ -54,15 +54,36 @@ function getSorting(order, orderBy) {
 
 const headRows = [
   {
-    id: "name",
+    id: "affinities",
+    numeric: false,
+    disablePadding: false,
+    label: "Afinidades"
+  },
+
+  {
+    id: "applicant",
     numeric: false,
     disablePadding: true,
-    label: "Dessert (100g serving)"
+    label: "Candidato"
   },
-  { id: "calories", numeric: true, disablePadding: false, label: "Calories" },
-  { id: "fat", numeric: true, disablePadding: false, label: "Fat (g)" },
-  { id: "carbs", numeric: true, disablePadding: false, label: "Carbs (g)" },
-  { id: "protein", numeric: true, disablePadding: false, label: "Protein (g)" }
+  {
+    id: "contact",
+    numeric: true,
+    disablePadding: false,
+    label: "Contato"
+  },
+  {
+    id: "registered",
+    numeric: true,
+    disablePadding: false,
+    label: "Inscrito em"
+  },
+  {
+    id: "tags",
+    numeric: true,
+    disablePadding: false,
+    label: "Observações"
+  }
 ];
 
 function EnhancedTableHead(props) {
@@ -93,8 +114,7 @@ function EnhancedTableHead(props) {
               active={orderBy === row.id}
               direction={order}
               onClick={createSortHandler(row.id)}
-            >
-              {row.label}
+            > {row.label}
             </TableSortLabel>
           </TableCell>
         ))}
@@ -184,7 +204,7 @@ const useStyles = makeStyles(theme => ({
 export default function EnhancedTable() {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
-  const [orderBy, setOrderBy] = React.useState("calories");
+  const [orderBy, setOrderBy] = React.useState("affinities");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -248,7 +268,6 @@ export default function EnhancedTable() {
                 .map((row, index) => {
                   const isItemSelected = isSelected(row.name);
                   const labelId = `enhanced-table-checkbox-${index}`;
-
                   return (
                     <TableRow
                       hover
@@ -257,17 +276,14 @@ export default function EnhancedTable() {
                       aria-checked={isItemSelected}
                       tabIndex={-1}
                       key={row.name}
-                      selected={isItemSelected}
-                    >
-
-                      <TableApplicate />
-
+                      selected={isItemSelected}>
                     </TableRow>
                   );
                 })}
               {emptyRows > 0 && (
                 <TableRow style={{ height: 49 * emptyRows }}>
                   <TableCell colSpan={6} />
+                  <TableApplicate />
                 </TableRow>
               )}
             </TableBody>
