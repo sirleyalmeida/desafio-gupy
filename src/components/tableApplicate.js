@@ -37,35 +37,26 @@ class TableApplicate extends React.Component {
                   border: "1px solid rgba(224, 224, 224, 1)"
                 }}
                 align="center"
-                justifyContent="space-around"
-              >
-               
+                justifyContent="space-around">
                 <div className="Border-circle" > {element.score} </div>
               </TableCell>
-
               <TableCell
                 style={{
                   border: "1px solid rgba(224, 224, 224, 1)"
                 }}
                 align="center"
-                justifyContent="space-around"
-              >
-               {element.name}
-                <div className="Border-circle">   {element.picture} </div>> 
+                justifyContent="space-around">
+                {element.name}
+                <div className="Border-circle">   {element.picture} </div>>
               </TableCell>
-
               <TableCell
-                style={{
-                  border: "1px solid rgba(224, 224, 224, 1)"
-                }}
+                style={{ border: "1px solid rgba(224, 224, 224, 1)" }}
                 align="center"
-                justifyContent="space-around"
-              >
+                justifyContent="space-around">
                 <i class="material-icons">email</i>
-                <i class="material-icons"> phone </i>
-                <i class="material-icons"> place </i>
+                <i class="material-icons">phone</i>
+                <i class="material-icons">place</i>
               </TableCell>
-
             </>
           );
         })}
@@ -73,7 +64,5 @@ class TableApplicate extends React.Component {
     );
   }
 }
-
-// console.log(JSON.stringify(this.state.database))
 
 export default TableApplicate;
