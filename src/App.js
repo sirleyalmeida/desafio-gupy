@@ -1,10 +1,10 @@
 
 import React from 'react';
 import './App.css';
-import Api from './components/Api';
+import TableApplicate from './components/tableApplicate';
 import SimpleAppBar from './components/navbar.js';
 import SearchAppBar from './components/searchNavbar.js';
-import EnhancedTableHead from './components/candidate'
+import EnhancedTableHead from './components/applicate'
 
 function App() {
 
@@ -13,7 +13,7 @@ function App() {
 
       <header className="App-header">
 
-        <Api />
+       
 
         <SimpleAppBar />
         <SearchAppBar />
