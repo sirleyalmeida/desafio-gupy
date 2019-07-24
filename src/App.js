@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import Api from './components/table';
+import TableApplicate from './components/tableApplicate';
 import SimpleAppBar from './components/navbar.js';
 import SearchAppBar from './components/searchNavbar.js';
 import EnhancedTableHead from './components/applicate'

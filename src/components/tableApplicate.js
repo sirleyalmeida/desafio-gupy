@@ -1,7 +1,7 @@
 import React from "react";
 import TableCell from "@material-ui/core/TableCell";
 
-class Api extends React.Component {
+class TableApplicate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,8 +50,8 @@ class Api extends React.Component {
                 align="center"
                 justifyContent="space-around"
               >
-                {" "}
-                <div className="Border-circle" />
+               {element.name}
+                <div className="Border-circle">   {element.picture} </div>> 
               </TableCell>
 
               <TableCell
@@ -76,4 +76,4 @@ class Api extends React.Component {
 
 // console.log(JSON.stringify(this.state.database))
 
-export default Table;
+export default TableApplicate;
