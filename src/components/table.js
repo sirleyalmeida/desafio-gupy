@@ -76,4 +76,4 @@ class Api extends React.Component {
 
 // console.log(JSON.stringify(this.state.database))
 
-export default Api;
+export default Table;

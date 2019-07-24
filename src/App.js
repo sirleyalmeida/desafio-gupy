@@ -1,10 +1,10 @@
 
 import React from 'react';
 import './App.css';
-import Api from './components/Api';
+import Api from './components/table';
 import SimpleAppBar from './components/navbar.js';
 import SearchAppBar from './components/searchNavbar.js';
-import EnhancedTableHead from './components/candidate'
+import EnhancedTableHead from './components/applicate'
 
 function App() {
 

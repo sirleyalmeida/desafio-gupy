@@ -18,7 +18,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import Chip from "@material-ui/core/Chip";
 import Icon from "@material-ui/core/Icon";
-import Api from "./Api"
+import Table from "./table"
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -274,7 +274,7 @@ export default function EnhancedTable() {
                       selected={isItemSelected}
                     >
                     
-<Api/>
+<Table/>
 
                     </TableRow>
                   );
