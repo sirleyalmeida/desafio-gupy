@@ -34,7 +34,7 @@ class TableApplicate extends React.Component {
 
   render() {
     return (
-      <>
+       <>
         {this.state.database.map(element => {
           return (
             <TableRow
@@ -109,10 +109,9 @@ class TableApplicate extends React.Component {
           );
         })}
       </>
+ 
     );
   }
 }
-
-// console.log(JSON.stringify(this.state.database))
 
 export default TableApplicate;

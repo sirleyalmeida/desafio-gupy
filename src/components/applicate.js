@@ -20,6 +20,7 @@ import Chip from "@material-ui/core/Chip";
 import Icon from "@material-ui/core/Icon";
 import TableApplicate from "./tableApplicate"
 
+ 
 function createData(Afinidade, Candidato, Contato, Inscrito , Observações) {
   return { Afinidade, Candidato, Contato, Inscrito , Observações };
 }
@@ -28,6 +29,7 @@ const rows = [
   createData( "Afinidade", "Candidato", "Contato", " Inscrito em" , "Observações")
    
 ];
+ 
 
 function desc(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -57,6 +59,7 @@ function getSorting(order, orderBy) {
 
 const headRows = [
   {
+ 
     id: "Afinidade",
     numeric: false,
     disablePadding: true,
@@ -66,6 +69,7 @@ const headRows = [
   { id: "Contato", numeric: true, disablePadding: false, label: "Contatos" },
   { id: "Inscrito ", numeric: true, disablePadding: false, label: "Inscrito em" },
   { id: "Observações", numeric: true, disablePadding: false, label: "Observações" }
+ 
 ];
 
 function EnhancedTableHead(props) {
@@ -96,8 +100,7 @@ function EnhancedTableHead(props) {
               active={orderBy === row.id}
               direction={order}
               onClick={createSortHandler(row.id)}
-            >
-              {row.label}
+            > {row.label}
             </TableSortLabel>
           </TableCell>
         ))}
@@ -123,13 +126,13 @@ const useToolbarStyles = makeStyles(theme => ({
   highlight:
     theme.palette.type === "light"
       ? {
-          color: theme.palette.secondary.main,
-          backgroundColor: lighten(theme.palette.secondary.light, 0.85)
-        }
+        color: theme.palette.secondary.main,
+        backgroundColor: lighten(theme.palette.secondary.light, 0.85)
+      }
       : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.secondary.dark
-        },
+        color: theme.palette.text.primary,
+        backgroundColor: theme.palette.secondary.dark
+      },
   spacer: {
     // flex: "1 1 100%"
   },
@@ -184,7 +187,7 @@ const useStyles = makeStyles(theme => ({
 export default function EnhancedTable() {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
-  const [orderBy, setOrderBy] = React.useState("calories");
+  const [orderBy, setOrderBy] = React.useState("affinities");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -248,18 +251,19 @@ export default function EnhancedTable() {
                 .map((row, index) => {
                   const isItemSelected = isSelected(row.name);
                   const labelId = `enhanced-table-checkbox-${index}`;
-
                   return (
+ 
                   
                     
 <TableApplicate rowName={row.name} isItemSelected={isItemSelected} onClick={event => handleClick(event, row.name)} />
 
-                 
+ 
                   );
                 })}
               {emptyRows > 0 && (
                 <TableRow style={{ height: 49 * emptyRows }}>
                   <TableCell colSpan={6} />
+                  <TableApplicate />
                 </TableRow>
               )}
             </TableBody>
