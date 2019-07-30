@@ -20,16 +20,13 @@ import Chip from "@material-ui/core/Chip";
 import Icon from "@material-ui/core/Icon";
 import TableApplicate from "./tableApplicate"
 
- 
-function createData(Afinidade, Candidato, Contato, Inscrito , Observações) {
-  return { Afinidade, Candidato, Contato, Inscrito , Observações };
+function createData(affinity, applicant, contact, registered, note) {
+  return { affinity, applicant, contact, registered, note };
 }
 
 const rows = [
-  createData( "Afinidade", "Candidato", "Contato", " Inscrito em" , "Observações")
-   
+  createData("Afinidade", "Candidato", "Contato", " Inscrito em", "Observações")
 ];
- 
 
 function desc(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -58,18 +55,12 @@ function getSorting(order, orderBy) {
 }
 
 const headRows = [
-  {
- 
-    id: "Afinidade",
-    numeric: false,
-    disablePadding: true,
-    label: "Afinidade"
-  },
-  { id: "Candidato", numeric: true, disablePadding: false, label: "Candidato" },
-  { id: "Contato", numeric: true, disablePadding: false, label: "Contatos" },
-  { id: "Inscrito ", numeric: true, disablePadding: false, label: "Inscrito em" },
-  { id: "Observações", numeric: true, disablePadding: false, label: "Observações" }
- 
+  { id: "affinity", numeric: true, disablePadding: false, label: "Afinidade" },
+  { id: "applicant", numeric: true, disablePadding: false, label: "Candidato" },
+  { id: "Ccontact", numeric: true, disablePadding: false, label: "Contatos" },
+  { id: "Iregistered", numeric: true, disablePadding: false, label: "Inscrito em" },
+  { id: "note", numeric: true, disablePadding: false, label: "Observações" }
+
 ];
 
 function EnhancedTableHead(props) {
@@ -187,7 +178,7 @@ const useStyles = makeStyles(theme => ({
 export default function EnhancedTable() {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
-  const [orderBy, setOrderBy] = React.useState("affinities");
+  const [orderBy, setOrderBy] = React.useState("affinity");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -252,18 +243,15 @@ export default function EnhancedTable() {
                   const isItemSelected = isSelected(row.name);
                   const labelId = `enhanced-table-checkbox-${index}`;
                   return (
- 
-                  
-                    
-<TableApplicate rowName={row.name} isItemSelected={isItemSelected} onClick={event => handleClick(event, row.name)} />
-
- 
+                    <TableApplicate
+                      rowName={row.name}
+                      isItemSelected={isItemSelected}
+                      onClick={event => handleClick(event, row.name)} />
                   );
                 })}
               {emptyRows > 0 && (
                 <TableRow style={{ height: 49 * emptyRows }}>
                   <TableCell colSpan={6} />
-                  <TableApplicate />
                 </TableRow>
               )}
             </TableBody>

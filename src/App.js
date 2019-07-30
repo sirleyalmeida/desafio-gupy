@@ -1,7 +1,5 @@
-
 import React from 'react';
 import './App.css';
-import TableApplicate from './components/tableApplicate';
 import SimpleAppBar from './components/navbar.js';
 import SearchAppBar from './components/searchNavbar.js';
 import EnhancedTableHead from './components/applicate'
@@ -9,14 +7,14 @@ import EnhancedTableHead from './components/applicate'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <SimpleAppBar />
-        <SearchAppBar />
-      </header>
-      <section>
-        <EnhancedTableHead >
-        </EnhancedTableHead>
-      </section>
+      {/* <header className="App-header"> */}
+      <SimpleAppBar />
+      <SearchAppBar />
+      {/* </header> */}
+      {/* <section> */}
+      <EnhancedTableHead >
+      </EnhancedTableHead>
+      {/* </section> */}
     </div>
   );
 }
