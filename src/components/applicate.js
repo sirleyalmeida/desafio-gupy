@@ -57,10 +57,9 @@ function getSorting(order, orderBy) {
 const headRows = [
   { id: "affinity", numeric: true, disablePadding: false, label: "Afinidade" },
   { id: "applicant", numeric: true, disablePadding: false, label: "Candidato" },
-  { id: "Ccontact", numeric: true, disablePadding: false, label: "Contatos" },
-  { id: "Iregistered", numeric: true, disablePadding: false, label: "Inscrito em" },
+  { id: "contact", numeric: false, disablePadding: false, label: "Contatos" },
+  { id: "registered", numeric: true, disablePadding: false, label: "Inscrito em" },
   { id: "note", numeric: true, disablePadding: false, label: "Observações" }
-
 ];
 
 function EnhancedTableHead(props) {

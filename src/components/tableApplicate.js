@@ -30,6 +30,11 @@ class TableApplicate extends React.Component {
       .then(resp => this.setState({ database: resp }));
   }
 
+  dateRegistered = (createdAt) => {
+    let date = new Date(createdAt)
+    return `${date.getDate()}|${date.getMonth() + 1}|${date.getFullYear()}`
+  }
+
   render() {
     return (
       <>
@@ -46,34 +51,37 @@ class TableApplicate extends React.Component {
                 style={{ border: "1px solid rgba(224, 224, 224, 1)" }}
                 align="center"
                 justifyContent="space-around">
-                <Typography variant="p" component="h2">
-                  <div className="Border-circle">{element.score}</div>
-                </Typography>
+                <Typography variant="p" component="text"
+                  className="Border-circle" key={element.id}>{element.score}</Typography>
               </TableCell>
               <TableCell>
-                <Typography variant="p" component="h2">{element.name}</Typography>
-                <Typography variant="p" component="h2">{element.birthDate}</Typography>
+                <Typography variant="p" component="h2" key={element.id}>{element.name}</Typography>
+                <Typography variant="p" component="h2" key={element.id}>{element.birthDate}</Typography>
                 <div>
-                  <img className="Border-circle-pic" src={element.picture}></img>
+                  <img className="Border-circle-pic" key={element.id} src={element.picture}></img>
                 </div>
               </TableCell>
               <TableCell
                 style={{ border: "1px solid rgba(224, 224, 224, 1)" }}
                 align="center"
                 justifyContent="space-around">
-                <i class="material-icons">email</i>
-                <i class="material-icons">phone</i>
-                <i class="material-icons">place</i>
+                <i class="material-icons icons-table" key={element.id}>email</i>
+                <i class="material-icons icons-table" key={element.id}>phone</i>
+                <i class="material-icons icons-table" key={element.id}>place</i>
               </TableCell>
               <TableCell
                 style={{ border: "1px solid rgba(224, 224, 224, 1)" }}
                 align="center"
-                justifyContent="space-around">{element.createdAt}</TableCell>
+                justifyContent="space-around" key={element.id}>{this.dateRegistered(element.createdAt)}</TableCell>
               <TableCell
                 style={{ border: "1px solid rgba(224, 224, 224, 1)" }}
                 align="left">
                 {element.tags.map(item => {
-                  return <Chip className="Tag" label={item} />;
+                  return <Chip
+                    style={{
+                      color: "white", backgroundColor: "#26a69a", borderRadius: 5, margin: 4
+                    }}
+                    className="tags" key={item.id} label={item} />;
                 })}
               </TableCell>
             </TableRow>
