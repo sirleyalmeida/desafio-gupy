@@ -22,7 +22,7 @@ export default function ContainedButtons({ text, onClick }) {
       onClick={onClick}
     >
       {text}
-      <Typography variant="text" color="inherit" className={classes.navTitle}>
+      <Typography variant="subtitle2" color="inherit" className={classes.navTitle}>
         Buscar candidato
         </Typography>
     </Button>

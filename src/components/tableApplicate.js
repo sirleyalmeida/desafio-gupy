@@ -4,6 +4,7 @@ import Chip from "@material-ui/core/Chip";
 import Icon from "@material-ui/core/Icon";
 import Typography from "@material-ui/core/Typography";
 import TableRow from "@material-ui/core/TableRow";
+import Grid from '@material-ui/core/Grid';
 
 class TableApplicate extends React.Component {
   constructor(props) {
@@ -35,10 +36,29 @@ class TableApplicate extends React.Component {
     return `${date.getDate()}|${date.getMonth() + 1}|${date.getFullYear()}`
   }
 
+  ageApplicant = (birthDate) => {
+    let dateBday = new Date(birthDate),
+      yearBday = dateBday.getFullYear(),
+      monthBday = dateBday.getMonth() + 1,
+      dayBday = dateBday.getDate()
+
+    let dateNow = new Date(),
+      yearNow = dateNow.getFullYear(),
+      monthNow = dateNow.getMonth() + 1,
+      dayNow = dateNow.getDate(),
+
+      ageNow = yearNow - yearBday
+
+    if ((monthNow < monthBday) && (monthNow === monthBday) && (dayNow < dayBday)) {
+      ageNow--;
+    }
+    return `${ageNow} anos`
+  }
+
   render() {
     return (
       <>
-        {this.state.database.map(element => {
+        {this.state.database.map((element, index) => {
           return (
             <TableRow
               hover
@@ -48,40 +68,69 @@ class TableApplicate extends React.Component {
               key={this.props.rowName}
               selected={this.props.isItemSelected}>
               <TableCell
-                style={{ border: "1px solid rgba(224, 224, 224, 1)" }}
+                key={index}
+                style={{ border: "1px solid rgba(224, 224, 224, 1)", fontFamily: "'Lato', sans- serif" }}
                 align="center"
-                justifyContent="space-around">
-                <Typography variant="p" component="text"
-                  className="Border-circle" key={element.id}>{element.score}</Typography>
+                justifyContent="space-evenly">
+                <Typography variant="p" component="subtitle2"
+                  className="Border-circle">{element.score}</Typography>
               </TableCell>
               <TableCell>
-                <Typography variant="p" component="h2" key={element.id}>{element.name}</Typography>
-                <Typography variant="p" component="h2" key={element.id}>{element.birthDate}</Typography>
-                <div>
-                  <img className="Border-circle-pic" key={element.id} src={element.picture}></img>
-                </div>
+                <Grid container
+                  key={index}
+                  alignContent="flex-start">
+                  <div>
+                    <img className="Border-circle-pic" src={element.picture}></img>
+                  </div>
+                  <div style={{ paddingLeft: 15 }}>
+                    <Typography style={{ color: "#424242", fontFamily: "'Lato', sans- serif" }}
+                      variant="p"
+                      component="h4"
+                    >{element.name}</Typography>
+                    <Typography style={{ color: "#424242", fontSize: 12, fontFamily: "'Lato', sans- serif" }}
+                      variant="p"
+                      component="subtitle2"
+                    >{this.ageApplicant(element.birthDate)}</Typography>
+                  </div>
+                </Grid>
               </TableCell>
               <TableCell
-                style={{ border: "1px solid rgba(224, 224, 224, 1)" }}
+                key={index}
+                style={{ border: "1px solid rgba(224, 224, 224, 1)", fontFamily: "'Lato', sans- serif" }}
                 align="center"
                 justifyContent="space-around">
-                <i class="material-icons icons-table" key={element.id}>email</i>
-                <i class="material-icons icons-table" key={element.id}>phone</i>
-                <i class="material-icons icons-table" key={element.id}>place</i>
+                <i class="material-icons icons-table">email</i>
+                <i class="material-icons icons-table">phone</i>
+                <i class="material-icons icons-table">place</i>
               </TableCell>
               <TableCell
-                style={{ border: "1px solid rgba(224, 224, 224, 1)" }}
+                key={index}
+                style={{
+                  border: "1px solid rgba(224, 224, 224, 1)",
+                  fontWeight: "bold",
+                  fontSize: 14,
+                  color: "#424242",
+                  fontFamily: "'Lato', sans- serif"
+                }}
                 align="center"
-                justifyContent="space-around" key={element.id}>{this.dateRegistered(element.createdAt)}</TableCell>
+                justifyContent="space-around"
+              >{this.dateRegistered(element.createdAt)}</TableCell>
               <TableCell
                 style={{ border: "1px solid rgba(224, 224, 224, 1)" }}
                 align="left">
-                {element.tags.map(item => {
+                {element.tags.map((item, index) => {
                   return <Chip
+                    key={index}
                     style={{
-                      color: "white", backgroundColor: "#26a69a", borderRadius: 5, margin: 4
+                      color: "white",
+                      backgroundColor: "#26a69a",
+                      borderRadius: 5,
+                      margin: 4,
+                      fontSize: 12,
+                      padding: 1,
+                      fontFamily: "'Lato', sans- serif"
                     }}
-                    className="tags" key={item.id} label={item} />;
+                    className="tags" label={item} />
                 })}
               </TableCell>
             </TableRow>

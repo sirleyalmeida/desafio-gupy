@@ -32,7 +32,7 @@ export default function SimpleAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="white">
+      <AppBar position="static" color="inherit">
         <Toolbar>
           <img
             src={logo}
@@ -40,7 +40,7 @@ export default function SimpleAppBar() {
             className={classes.imgLogo}
           />
           <Divider className={classes.divider} />
-          <Typography variant="h6" color="grey" className={classes.navTitle}>
+          <Typography variant="h6" color="inherit" className={classes.navTitle}>
             Casting for Game of Thrones
                 </Typography>
         </Toolbar>

@@ -18,13 +18,13 @@ export default function SearchAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="white">
+      <AppBar position="static" color="inherit">
         <Toolbar>
           <Grid container
             direction="column"
-            justify="left"
-            wrap-xs-nowrap>
-            <Typography variant="h6" color="inherit" item={true}>
+            justify="flex-start"
+            wrap-xs-nowrap="true">
+            <Typography variant="h6" color="inherit">
               <div className="navsearch-text">
                 Buscar Candidato    -
                  </div>

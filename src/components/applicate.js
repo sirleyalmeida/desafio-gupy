@@ -56,10 +56,10 @@ function getSorting(order, orderBy) {
 
 const headRows = [
   { id: "affinity", numeric: true, disablePadding: false, label: "Afinidade" },
-  { id: "applicant", numeric: true, disablePadding: false, label: "Candidato" },
-  { id: "contact", numeric: false, disablePadding: false, label: "Contatos" },
+  { id: "applicant", numeric: false, disablePadding: false, label: "Candidato" },
+  { id: "contact", numeric: true, disablePadding: false, label: "Contatos" },
   { id: "registered", numeric: true, disablePadding: false, label: "Inscrito em" },
-  { id: "note", numeric: true, disablePadding: false, label: "Observações" }
+  { id: "note", numeric: false, disablePadding: false, label: "Observações" }
 ];
 
 function EnhancedTableHead(props) {
@@ -81,10 +81,10 @@ function EnhancedTableHead(props) {
         {headRows.map(row => (
           <TableCell
             key={row.id}
-            align={row.numeric ? "right" : "left"}
+            align={row.numeric ? "center" : "center"}
             padding={row.disablePadding ? "none" : "default"}
             sortDirection={orderBy === row.id ? order : false}
-            style={{ border: "1px solid     rgba(224, 224, 224, 1)" }}
+            style={{ border: "1px solid rgba(224, 224, 224, 1)" }}
           >
             <TableSortLabel
               active={orderBy === row.id}
@@ -110,7 +110,7 @@ EnhancedTableHead.propTypes = {
 
 const useToolbarStyles = makeStyles(theme => ({
   root: {
-    paddingLeft: theme.spacing(2),
+    paddingLeft: theme.spacing(1),
     paddingRight: theme.spacing(1)
   },
   highlight:
@@ -124,7 +124,7 @@ const useToolbarStyles = makeStyles(theme => ({
         backgroundColor: theme.palette.secondary.dark
       },
   spacer: {
-    // flex: "1 1 100%"
+    flex: "1 1 100%"
   },
   actions: {
     color: theme.palette.text.secondary
@@ -156,15 +156,18 @@ EnhancedTableToolbar.propTypes = {
 const useStyles = makeStyles(theme => ({
   root: {
     width: "100%",
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(0),
     border: 1
   },
   paper: {
     width: "100%",
-    margin: theme.spacing(2),
-    padding: theme.spacing(2)
+    margin: theme.spacing(1),
+    padding: theme.spacing(1)
   },
   table: {
+    width: "100%",
+    height: "100%",
+    // maxWidth: "100%",
     minWidth: 750,
     border: 1
   },
@@ -204,7 +207,6 @@ export default function EnhancedTable() {
         selected.slice(selectedIndex + 1)
       );
     }
-
     setSelected(newSelected);
   }
 
@@ -243,6 +245,7 @@ export default function EnhancedTable() {
                   const labelId = `enhanced-table-checkbox-${index}`;
                   return (
                     <TableApplicate
+                      key={labelId}
                       rowName={row.name}
                       isItemSelected={isItemSelected}
                       onClick={event => handleClick(event, row.name)} />
@@ -263,10 +266,10 @@ export default function EnhancedTable() {
           rowsPerPage={rowsPerPage}
           page={page}
           backIconButtonProps={{
-            "aria-label": "Previous Page"
+            "aria-label": "Página Anterior"
           }}
           nextIconButtonProps={{
-            "aria-label": "Next Page"
+            "aria-label": "Próxima Página"
           }}
           onChangePage={handleChangePage}
           onChangeRowsPerPage={handleChangeRowsPerPage}

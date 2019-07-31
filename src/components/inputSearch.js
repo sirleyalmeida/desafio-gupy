@@ -53,7 +53,7 @@ export default function CustomizedInputBase() {
         inputProps={{ 'aria-label': 'Search Google Maps' }}
       />
       <IconButton className={classes.iconButton} aria-label="Search">
-        <i class="material-icons" color="primary">search</i>
+        <i className="material-icons" color="primary">search</i>
       </IconButton>
     </Paper>
   );
