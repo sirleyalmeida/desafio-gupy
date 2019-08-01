@@ -55,6 +55,13 @@ class TableApplicate extends React.Component {
     return `${ageNow} anos`
   }
 
+  countryApplicant = (address) => {
+    let addressApplicant = address;
+    let cityAndCountry = addressApplicant.substring(addressApplicant.indexOf(",") + 1);
+    let onlyCountry = cityAndCountry.substring(cityAndCountry.indexOf(",") + 1);
+    return onlyCountry
+  }
+
   render() {
     return (
       <>
@@ -90,7 +97,7 @@ class TableApplicate extends React.Component {
                     <Typography style={{ color: "#424242", fontSize: 12, fontFamily: "'Lato', sans- serif" }}
                       variant="p"
                       component="subtitle2"
-                    >{this.ageApplicant(element.birthDate)}</Typography>
+                    >{this.ageApplicant(element.birthDate)}, {this.countryApplicant(element.address)}</Typography>
                   </div>
                 </Grid>
               </TableCell>

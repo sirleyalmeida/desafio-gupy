@@ -19,6 +19,7 @@ import Switch from "@material-ui/core/Switch";
 import Chip from "@material-ui/core/Chip";
 import Icon from "@material-ui/core/Icon";
 import TableApplicate from "./tableApplicate"
+import Grid from '@material-ui/core/Grid';
 
 function createData(affinity, applicant, contact, registered, note) {
   return { affinity, applicant, contact, registered, note };
@@ -167,8 +168,8 @@ const useStyles = makeStyles(theme => ({
   table: {
     width: "100%",
     height: "100%",
-    // maxWidth: "100%",
-    minWidth: 750,
+    // maxWidth: 767,
+    // minWidth: 750,
     border: 1
   },
   tableWrapper: {
@@ -227,6 +228,7 @@ export default function EnhancedTable() {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
+        <Grid item xs={12}>
         <EnhancedTableToolbar numSelected={selected.length} />
         <div className={classes.tableWrapper}>
           <Table className={classes.table} aria-labelledby="tableTitle">
@@ -274,6 +276,7 @@ export default function EnhancedTable() {
           onChangePage={handleChangePage}
           onChangeRowsPerPage={handleChangeRowsPerPage}
         />
+         </Grid>
       </Paper>
     </div>
   );
